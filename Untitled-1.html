@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Message Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Random Message Generator</h1>
+        <form id="messageForm">
+            <label for="mood">Select Mood:</label>
+            <select id="mood">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Angry">Angry</option>
+                <option value="Confused">Confused</option>
+                <option value="Excited">Excited</option>
+                <option value="Calm">Calm</option>
+                <option value="Surprised">Surprised</option>
+                <option value="Content">Content</option>
+                <option value="Bored">Bored</option>
+                <option value="Hopeful">Hopeful</option>
+            </select>
+            <br><br>
+            <label for="topic">Select Topic:</label>
+            <select id="topic">
+                <option value="Weather">Weather</option>
+                <option value="Food">Food</option>
+                <option value="Technology">Technology</option>
+                <option value="Travel">Travel</option>
+                <option value="Sports">Sports</option>
+                <option value="Music">Music</option>
+                <option value="Movies">Movies</option>
+                <option value="Books">Books</option>
+                <option value="Animals">Animals</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Art">Art</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+                <option value="Health">Health</option>
+                <option value="Education">Education</option>
+            </select>
+            <br><br>
+            <label for="chaos">Select Chaos Level:</label>
+            <select id="chaos">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Extreme">Extreme</option>
+                <option value="Chaotic">Chaotic</option>
+                <option value="Disordered">Disordered</option>
+                <option value="Hectic">Hectic</option>
+                <option value="Frantic">Frantic</option>
+                <option value="Unruly">Unruly</option>
+                <option value="Turbulent">Turbulent</option>
+                <option value="Pandemonium">Pandemonium</option>
+                <option value="Mayhem">Mayhem</option>
+                <option value="Anarchy">Anarchy</option>
+                <option value="Bedlam">Bedlam</option>
+                <option value="Chaos">Chaos</option>
+                <option value="Uproar">Uproar</option>
+                <option value="Tumult">Tumult</option>
+                <option value="Ruckus">Ruckus</option>
+                <option value="Riot">Riot</option>
+                <option value="Cacophony">Cacophony</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="generateMessage()">Generate Message</button>
+        </form>
+        <p id="generatedMessage"></p>
+    </div>
+
+    <script>
+        function generateMessage() {
+            var mood = document.getElementById("mood").value;
+            var topic = document.getElementById("topic").value;
+            var chaos = document.getElementById("chaos").value;
+
+            var moodOptions = {
+                "Happy": ["Feeling great!", "Life is beautiful!", "Enjoying every moment!"],
+                "Sad": ["Feeling down.", "Life is tough.", "Hope things get better."],
+                "Angry": ["Furious right now!", "Can't handle this!", "Everything is frustrating!"],
+                "Confused": ["Lost in thoughts.", "Nothing makes sense.", "Need some clarity."],
+                "Excited": ["Thrilled beyond words!", "Can't contain the excitement!", "Feeling euphoric!"],
+                "Calm": ["Peaceful and serene.", "Tranquility at its finest.", "Embracing inner peace."],
+                "Surprised": ["Shocked beyond belief!", "Didn't see that coming!", "Speechless with surprise!"],
+                "Content": ["Satisfied and content.", "Life is good.", "Finding joy in simple things."],
+                "Bored": ["Absolutely bored.", "Nothing interesting happening.", "Desperately need some excitement."],
+                "Hopeful": ["Optimistic about the future.", "Keeping faith alive.", "Hope is the driving force."],
+            };
+
+            var topicOptions = {
+                "Weather": ["It's raining cats and dogs!", "Sunshine all day!", "Snow everywhere!"],
+                "Food": ["Enjoying some delicious pizza!", "Craving for some ice cream.", "Cooking some spaghetti!"],
+                "Technology": ["The latest gadgets are amazing!", "Coding all night.", "Internet is down!"],
+                "Travel": ["Exploring new destinations!", "Stuck in traffic.", "Missed the flight!"],
+                "Sports": ["Cheering for the home team!", "Training hard for the big game.", "Watching a thrilling match!"],
+                "Music": ["Rocking out to some tunes!", "Jamming with friends.", "Lost in the rhythm!"],
+                "Movies": ["Binge-watching movies all night!", "Crying over a

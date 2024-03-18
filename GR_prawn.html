@@ -1,147 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Message Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-        }
-        #container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        select {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        p {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Message Quote Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .chaos-level {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .chaos-level label {
+        margin-right: 10px;
+    }
+    #quote-box {
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        overflow-y: auto;
+    }
+</style>
 </head>
 <body>
-    <div id="container">
-        <h1>Random Message Generator</h1>
-        <form id="messageForm">
-            <label for="mood">Select Mood:</label>
-            <select id="mood">
-                <option value="Happy">Happy</option>
-                <option value="Sad">Sad</option>
-                <option value="Angry">Angry</option>
-                <option value="Confused">Confused</option>
-                <option value="Excited">Excited</option>
-                <option value="Calm">Calm</option>
-                <option value="Surprised">Surprised</option>
-                <option value="Content">Content</option>
-                <option value="Bored">Bored</option>
-                <option value="Hopeful">Hopeful</option>
-            </select>
-            <br><br>
-            <label for="topic">Select Topic:</label>
-            <select id="topic">
-                <option value="Weather">Weather</option>
-                <option value="Food">Food</option>
-                <option value="Technology">Technology</option>
-                <option value="Travel">Travel</option>
-                <option value="Sports">Sports</option>
-                <option value="Music">Music</option>
-                <option value="Movies">Movies</option>
-                <option value="Books">Books</option>
-                <option value="Animals">Animals</option>
-                <option value="Fashion">Fashion</option>
-                <option value="Art">Art</option>
-                <option value="Science">Science</option>
-                <option value="History">History</option>
-                <option value="Health">Health</option>
-                <option value="Education">Education</option>
-            </select>
-            <br><br>
-            <label for="chaos">Select Chaos Level:</label>
-            <select id="chaos">
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-                <option value="Extreme">Extreme</option>
-                <option value="Chaotic">Chaotic</option>
-                <option value="Disordered">Disordered</option>
-                <option value="Hectic">Hectic</option>
-                <option value="Frantic">Frantic</option>
-                <option value="Unruly">Unruly</option>
-                <option value="Turbulent">Turbulent</option>
-                <option value="Pandemonium">Pandemonium</option>
-                <option value="Mayhem">Mayhem</option>
-                <option value="Anarchy">Anarchy</option>
-                <option value="Bedlam">Bedlam</option>
-                <option value="Chaos">Chaos</option>
-                <option value="Uproar">Uproar</option>
-                <option value="Tumult">Tumult</option>
-                <option value="Ruckus">Ruckus</option>
-                <option value="Riot">Riot</option>
-                <option value="Cacophony">Cacophony</option>
-            </select>
-            <br><br>
-            <button type="button" onclick="generateMessage()">Generate Message</button>
-        </form>
-        <p id="generatedMessage"></p>
+<div class="container">
+    <h1>Random Message Quote Generator</h1>
+    <div class="chaos-level">
+        <label for="chaos-low"><input type="radio" id="chaos-low" name="chaos-level" value="low" checked> Low Chaos</label>
+        <label for="chaos-medium"><input type="radio" id="chaos-medium" name="chaos-level" value="medium"> Medium Chaos</label>
+        <label for="chaos-high"><input type="radio" id="chaos-high" name="chaos-level" value="high"> High Chaos</label>
     </div>
+    <textarea id="quote-box" readonly></textarea>
+</div>
 
-    <script>
-        function generateMessage() {
-            var mood = document.getElementById("mood").value;
-            var topic = document.getElementById("topic").value;
-            var chaos = document.getElementById("chaos").value;
+<script>
+    const deathMessages = {
+        low: [
+            "Choked on a peanut.",
+            "Fell off a ladder while changing a lightbulb.",
+            "Slipped on a banana peel.",
+            "Stung by a radioactive mosquito.",
+            "Eaten by a plant.",
+            "Got lost in the Bermuda Triangle.",
+            "Drowned in a kiddie pool.",
+            "Attacked by a killer tomato.",
+            "Crushed by a falling coconut.",
+            "Swallowed by a giant clam.",
+            "Struck by a meteorite.",
+            "Froze to death in a heatwave.",
+            "Overdosed on gummy bears.",
+            "Trampled by a stampede of hamsters.",
+            "Electrocuted by a toaster.",
+            "Suffocated by too much air.",
+            "Poisoned by expired milk.",
+            "Sucked into a black hole.",
+            "Turned into a pumpkin at midnight.",
+            "Fell into a pit of marshmallows.",
+            "Stabbed by a unicorn horn.",
+            "Lost in a maze of mirrors.",
+            "Cursed by a vengeful ghost.",
+            "Crushed by a giant rubber duck."
+        ],
+        medium: [
+            "Hit by a falling piano.",
+            "Trampled by a herd of wild rabbits.",
+            "Fell into a pit of quicksand.",
+            "Struck by lightning while indoors.",
+            "Sucked into a video game.",
+            "Turned into a werewolf during a full moon.",
+            "Eaten alive by ants.",
+            "Petrified by a basilisk's stare.",
+            "Absorbed by quick-growing ivy.",
+            "Crushed by a falling satellite.",
+            "Sank with a ship made of cheese.",
+            "Drowned in a sea of pudding.",
+            "Burned at the stake by sentient candles.",
+            "Mummified by ancient curses.",
+            "Infected by zombie chickens.",
+            "Stung by a swarm of robotic bees.",
+            "Trapped in a time loop.",
+            "Vanished into thin air.",
+            "Imploded from too much pressure.",
+            "Fused with a vending machine.",
+            "Crushed by a giant snowball.",
+            "Buried under an avalanche of paperwork.",
+            "Incinerated by a rogue sunbeam.",
+            "Turned to stone by a medusa."
+        ],
+        high: [
+            "Devoured by a giant space worm.",
+            "Transported to another dimension and never returned.",
+            "Absorbed by a sentient blob of jelly.",
+            "Erased from existence by a quantum glitch.",
+            "Sacrificed to appease a deity.",
+            "Dissolved by acid rain.",
+            "Annihilated by a rogue AI.",
+            "Consumed by a living shadow.",
+            "Fused into a cyborg hive mind.",
+            "Transformed into a constellation.",
+            "Swallowed by a cosmic serpent.",
+            "Imploded by psychic pressure.",
+            "Torn apart by gravitational forces.",
+            "Cursed to eternal torment.",
+            "Vaporized by a reality-warping explosion.",
+            "Frozen in time and space.",
+            "Eaten by an interdimensional monster.",
+            "Shattered by a sound wave.",
+            "Disintegrated by a laser beam.",
+            "Merged with the fabric of the universe.",
+            "Torn apart by psychic energy.",
+            "Imploded into a singularity.",
+            "Scattered across alternate realities.",
+            "Wiped from the annals of history.",
+            "Consumed by the void."
+        ]
+    };
 
-            var moodOptions = {
-                "Happy": ["Feeling great!", "Life is beautiful!", "Enjoying every moment!"],
-                "Sad": ["Feeling down.", "Life is tough.", "Hope things get better."],
-                "Angry": ["Furious right now!", "Can't handle this!", "Everything is frustrating!"],
-                "Confused": ["Lost in thoughts.", "Nothing makes sense.", "Need some clarity."],
-                "Excited": ["Thrilled beyond words!", "Can't contain the excitement!", "Feeling euphoric!"],
-                "Calm": ["Peaceful and serene.", "Tranquility at its finest.", "Embracing inner peace."],
-                "Surprised": ["Shocked beyond belief!", "Didn't see that coming!", "Speechless with surprise!"],
-                "Content": ["Satisfied and content.", "Life is good.", "Finding joy in simple things."],
-                "Bored": ["Absolutely bored.", "Nothing interesting happening.", "Desperately need some excitement."],
-                "Hopeful": ["Optimistic about the future.", "Keeping faith alive.", "Hope is the driving force."],
-            };
+    const quoteBox = document.getElementById('quote-box');
+    const chaosLevelRadios = document.querySelectorAll('input[name="chaos-level"]');
 
-            var topicOptions = {
-                "Weather": ["It's raining cats and dogs!", "Sunshine all day!", "Snow everywhere!"],
-                "Food": ["Enjoying some delicious pizza!", "Craving for some ice cream.", "Cooking some spaghetti!"],
-                "Technology": ["The latest gadgets are amazing!", "Coding all night.", "Internet is down!"],
-                "Travel": ["Exploring new destinations!", "Stuck in traffic.", "Missed the flight!"],
-                "Sports": ["Cheering for the home team!", "Training hard for the big game.", "Watching a thrilling match!"],
-                "Music": ["Rocking out to some tunes!", "Jamming with friends.", "Lost in the rhythm!"],
-                "Movies": ["Binge-watching movies all night!", "Crying over a
+    function getRandomDeathMessage(chaosLevel) {
+        const messagesArray = deathMessages[chaosLevel];
+        return messagesArray[Math.floor(Math.random() * messagesArray.length)];
+    }
+
+    function displayQuote() {
+        const selectedChaosLevel = document.querySelector('input[name="chaos-level"]:checked').value;
+        quoteBox.value = getRandomDeathMessage(selectedChaosLevel);
+    }
+
+    chaosLevelRadios.forEach(radio => {
+        radio.addEventListener('change', displayQuote);
+    });
+
+    // Display initial quote
+    displayQuote();
+</script>
+</body>
+</html>
+

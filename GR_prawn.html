@@ -1,119 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Breakfast Message Quote Generator</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absurd Breakfast Quote Generator</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+    
     .container {
-        max-width: 600px;
-        margin: 50px auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+    
     h1 {
-        text-align: center;
+      color: #333;
     }
-    .chaos-level {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+    
+    .chaos-buttons {
+      margin-bottom: 20px;
     }
-    .chaos-level label {
-        margin-right: 10px;
+    
+    .chaos-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
     }
-    #quote-box {
-        width: 100%;
-        height: 200px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        overflow-y: auto;
+    
+    .chaos-button:hover {
+      background-color: #0056b3;
     }
-</style>
+    
+    #quote-output {
+      width: 80%;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-height: 100px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <h1>Random Breakfast Message Quote Generator</h1>
-    <div class="chaos-level">
-        <label for="chaos-low"><input type="radio" id="chaos-low" name="chaos-level" value="low" checked> Low Chaos</label>
-        <label for="chaos-medium"><input type="radio" id="chaos-medium" name="chaos-level" value="medium"> Medium Chaos</label>
-        <label for="chaos-high"><input type="radio" id="chaos-high" name="chaos-level" value="high"> High Chaos</label>
+  <div class="container">
+    <h1>Absurd Breakfast Quote Generator</h1>
+    <div class="chaos-buttons">
+      <button class="chaos-button" onclick="setChaosLevel(1)">Low Chaos</button>
+      <button class="chaos-button" onclick="setChaosLevel(2)">Medium Chaos</button>
+      <button class="chaos-button" onclick="setChaosLevel(3)">High Chaos</button>
     </div>
-    <textarea id="quote-box" readonly></textarea>
-</div>
+    <textarea id="quote-output" readonly></textarea>
+  </div>
 
-<script>
-    const breakfastMessages = {
-        low: [
-            "Start your day with a healthy bowl of oatmeal.",
-            "Enjoy a classic breakfast with eggs and toast.",
-            "Fuel up with a nutritious smoothie bowl.",
-            "Don't skip breakfast; it's the most important meal of the day!",
-            "Try some Greek yogurt with fresh fruits and honey for a light breakfast.",
-            "A simple bowl of cereal can be comforting and filling.",
-            "Kickstart your morning with a refreshing fruit salad.",
-            "Have a protein-packed breakfast with a side of turkey bacon.",
-            "Get your caffeine fix with a cup of freshly brewed coffee.",
-            "How about some whole wheat toast with almond butter and banana slices?",
-            "Elevate your breakfast game with homemade granola and yogurt.",
-            "Start your day on a sweet note with some French toast sticks.",
-            "Scrambled eggs with spinach and feta cheese make for a delicious breakfast.",
-            "Keep it simple yet satisfying with a bowl of warm porridge.",
-            "A breakfast sandwich with avocado and tomato is always a good idea.",
-            "Craving something savory? Try a breakfast quesadilla with salsa.",
-            "Get creative with your oatmeal toppings; try nuts, seeds, and dried fruits.",
-            "Homemade muffins filled with blueberries are a delightful treat for breakfast.",
-            "For a quick breakfast on the go, grab a granola bar and a piece of fruit.",
-            "Make a batch of overnight oats for a hassle-free breakfast option.",
-            "Satisfy your morning hunger with a stack of fluffy pancakes.",
-            "A hearty bowl of vegetable soup can be a comforting breakfast choice.",
-            "Start your day with a refreshing smoothie packed with greens and fruits.",
-            "A breakfast wrap with scrambled eggs and veggies is both nutritious and tasty.",
-            "Experiment with different types of breakfast cereals to find your favorite.",
-        ],
-        medium: [
-            "Indulge in a decadent stack of pancakes drizzled with maple syrup.",
-            "Savor the goodness of avocado toast topped with poached eggs.",
-            "Try something different with a breakfast burrito filled with chorizo and potatoes.",
-            "Feeling fancy? Treat yourself to a smoked salmon bagel with cream cheese.",
-            "Start your day with a bowl of creamy chia seed pudding topped with fresh berries.",
-            "Enjoy a breakfast pizza topped with eggs, bacon, and cheese.",
-            "How about a breakfast parfait with layers of yogurt, granola, and mixed fruits?",
-            "Go for a Mediterranean-inspired breakfast with a plate of hummus, olives, and pita bread.",
-            "Whip up a batch of homemade waffles and serve them with your favorite toppings.",
-            "Fuel up for the day with a hearty breakfast skillet loaded with potatoes, sausage, and eggs.",
-            "Indulge your sweet tooth with a slice of cinnamon swirl bread toasted and topped with icing.",
-            "Start your morning with a warm and comforting bowl of congee topped with savory toppings.",
-            "Try a breakfast salad with mixed greens, hard-boiled eggs, and a tangy vinaigrette.",
-            "How about some shakshuka – eggs poached in a spicy tomato and pepper sauce?",
-            "Make breakfast fun with a DIY yogurt parfait bar with assorted toppings.",
-            "Satisfy your cravings with a breakfast BLT sandwich served on toasted sourdough bread.",
-            "Start your day with a tropical twist by enjoying a pineapple coconut smoothie bowl.",
-            "Feeling adventurous? Try a Japanese-style breakfast with miso soup, rice, and grilled fish.",
-            "How about a breakfast frittata loaded with your favorite veggies and cheese?",
-            "Make breakfast exciting with a build-your-own breakfast taco bar.",
-            "Start your day with a classic croissant sandwich filled with ham, cheese, and scrambled eggs.",
-            "Indulge in a breakfast bruschetta with tomatoes, basil, and a balsamic glaze.",
-            "Keep it light and refreshing with a breakfast salad topped with poached eggs and avocado.",
-            "Start your morning with a warm and comforting bowl of creamy grits topped with butter.",
-            "How about a breakfast smoothie packed with spinach, banana, and protein powder?",
-        ],
-        high: [
-            "Treat yourself to a full English breakfast complete with eggs, bacon, sausage, beans, and toast.",
-            "Go big with a breakfast feast featuring pancakes, waffles, French toast, and all the fixings.",
-            "Channel your inner chef with a gourmet omelette filled with lobster, mushrooms, and cheese.",
-            "Indulge in a decadent breakfast spread featuring pastries, quiches, and artisanal cheeses.",
-            "Satisfy your cravings with a breakfast poutine topped with gravy, cheese curds, and a fried egg.",
-            "Start your day with a breakfast board featuring an assortment of meats, cheeses, and fruits.",
-            "Go all out with a breakfast buffet featuring an array of international dishes.",
-            "Create a breakfast charcuterie board with an assortment of meats, cheeses, and gourmet spreads.",
-            "Indulge in a breakfast burger topped with a fried egg, bacon, avocado, and hollandaise sauce.",
-            "Make breakfast exciting with a DIY pancake bar featuring assorted toppings and sy
+  <script>
+    const quotes = {
+      1: [
+        "Pancakes with ketchup and pickles",
+        "Cereal with orange juice instead of milk",
+        "Pizza for breakfast",
+        "Toast with mayo and jelly",
+        "Waffles with salsa",
+        "Peanut butter and jelly omelette",
+        "Bacon ice cream",
+        "Chocolate-covered bacon",
+        "Popcorn with milk",
+        "Banana and mayonnaise sandwich",
+        "Fried eggs with marshmallows",
+        "Sardine smoothie",
+        "Gummy bear pancakes",
+        "Macaroni and cheese muffins",
+        "Sushi with scrambled eggs",
+        "Hot dog with maple syrup",
+        "Cotton candy cereal",
+        "Nachos with whipped cream",
+        "French toast with mustard",
+        "Broccoli muffins"
+      ],
+      2: [
+        "Spaghetti with syrup",
+        "Sushi with scrambled eggs",
+        "Ice cream with bacon bits",
+        "Pickle juice smoothie",
+        "Jellybeans on toast",
+        "Sausage and gummy worm scramble",
+        "Chocolate-covered pretzel cereal",
+        "Pancake sandwich with cheese",
+        "Cinnamon roll pizza",
+        "Bacon-wrapped donuts",
+        "Cereal with soda instead of milk",
+        "Chicken and waffles with gravy",
+        "Pop tart sandwich",
+        "Maple syrup on scrambled eggs",
+        "Fried chicken and jelly sandwich",
+        "Chocolate chip pancake tacos",
+        "Soda-infused pancakes",
+        "Peanut butter and banana pizza",
+        "Sardine and whipped cream surprise",
+        "Pickles and ice cream",
+        "Marshmallow cereal with hot sauce"
+      ],
+      3: [
+        "Tacos filled with cereal and jellybeans",
+        "Lobster tail with a side of gummy bears",
+        "Fried chicken on a waffle topped with hot sauce and whipped cream",
+        "Peanut butter and jellyfish sandwich",
+        "Bacon-wrapped sausage on a stick",
+        "Cereal and milk served in a shoe",
+        "Chocolate-covered onion rings",
+        "Spaghetti tacos with grape jelly",
+        "Sardine smoothie with a side of anchovies",
+        "Fried eggs with licorice",
+        "Cotton candy burrito",
+        "Gummy bear and pickled onion omelette",
+        "Marshmallow and cheese sandwich",
+        "Pickle and peanut butter pancake stack",
+        "Bacon-wrapped pop tarts",
+        "Jelly-filled donuts with mustard glaze",
+        "Fruit loops and ranch dressing",
+        "Gummy worm and bacon frittata",
+        "Soda-infused scrambled eggs",
+        "Fried chicken and jellybean salad",
+        "Chocolate-covered bacon-wrapped bananas"
+      ]
+    };
+
+    function getRandomIndex(array) {
+      return Math.floor(Math.random() * array.length);
+    }
+
+    function setChaosLevel(level) {
+      const quoteOutput = document.getElementById("quote-output");
+      const selectedQuotes = quotes[level];
+      const randomIndex = getRandomIndex(selectedQuotes);
+      quoteOutput.value = selectedQuotes[randomIndex];
+    }
+  </script>
+</body>
+</html>

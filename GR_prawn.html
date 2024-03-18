@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Message Quote Generator</title>
+<title>Random Breakfast Message Quote Generator</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -41,7 +41,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Random Message Quote Generator</h1>
+    <h1>Random Breakfast Message Quote Generator</h1>
     <div class="chaos-level">
         <label for="chaos-low"><input type="radio" id="chaos-low" name="chaos-level" value="low" checked> Low Chaos</label>
         <label for="chaos-medium"><input type="radio" id="chaos-medium" name="chaos-level" value="medium"> Medium Chaos</label>
@@ -51,108 +51,69 @@
 </div>
 
 <script>
-    const deathMessages = {
+    const breakfastMessages = {
         low: [
-            "Choked on a peanut.",
-            "Fell off a ladder while changing a lightbulb.",
-            "Slipped on a banana peel.",
-            "Stung by a radioactive mosquito.",
-            "Eaten by a plant.",
-            "Got lost in the Bermuda Triangle.",
-            "Drowned in a kiddie pool.",
-            "Attacked by a killer tomato.",
-            "Crushed by a falling coconut.",
-            "Swallowed by a giant clam.",
-            "Struck by a meteorite.",
-            "Froze to death in a heatwave.",
-            "Overdosed on gummy bears.",
-            "Trampled by a stampede of hamsters.",
-            "Electrocuted by a toaster.",
-            "Suffocated by too much air.",
-            "Poisoned by expired milk.",
-            "Sucked into a black hole.",
-            "Turned into a pumpkin at midnight.",
-            "Fell into a pit of marshmallows.",
-            "Stabbed by a unicorn horn.",
-            "Lost in a maze of mirrors.",
-            "Cursed by a vengeful ghost.",
-            "Crushed by a giant rubber duck."
+            "Start your day with a healthy bowl of oatmeal.",
+            "Enjoy a classic breakfast with eggs and toast.",
+            "Fuel up with a nutritious smoothie bowl.",
+            "Don't skip breakfast; it's the most important meal of the day!",
+            "Try some Greek yogurt with fresh fruits and honey for a light breakfast.",
+            "A simple bowl of cereal can be comforting and filling.",
+            "Kickstart your morning with a refreshing fruit salad.",
+            "Have a protein-packed breakfast with a side of turkey bacon.",
+            "Get your caffeine fix with a cup of freshly brewed coffee.",
+            "How about some whole wheat toast with almond butter and banana slices?",
+            "Elevate your breakfast game with homemade granola and yogurt.",
+            "Start your day on a sweet note with some French toast sticks.",
+            "Scrambled eggs with spinach and feta cheese make for a delicious breakfast.",
+            "Keep it simple yet satisfying with a bowl of warm porridge.",
+            "A breakfast sandwich with avocado and tomato is always a good idea.",
+            "Craving something savory? Try a breakfast quesadilla with salsa.",
+            "Get creative with your oatmeal toppings; try nuts, seeds, and dried fruits.",
+            "Homemade muffins filled with blueberries are a delightful treat for breakfast.",
+            "For a quick breakfast on the go, grab a granola bar and a piece of fruit.",
+            "Make a batch of overnight oats for a hassle-free breakfast option.",
+            "Satisfy your morning hunger with a stack of fluffy pancakes.",
+            "A hearty bowl of vegetable soup can be a comforting breakfast choice.",
+            "Start your day with a refreshing smoothie packed with greens and fruits.",
+            "A breakfast wrap with scrambled eggs and veggies is both nutritious and tasty.",
+            "Experiment with different types of breakfast cereals to find your favorite.",
         ],
         medium: [
-            "Hit by a falling piano.",
-            "Trampled by a herd of wild rabbits.",
-            "Fell into a pit of quicksand.",
-            "Struck by lightning while indoors.",
-            "Sucked into a video game.",
-            "Turned into a werewolf during a full moon.",
-            "Eaten alive by ants.",
-            "Petrified by a basilisk's stare.",
-            "Absorbed by quick-growing ivy.",
-            "Crushed by a falling satellite.",
-            "Sank with a ship made of cheese.",
-            "Drowned in a sea of pudding.",
-            "Burned at the stake by sentient candles.",
-            "Mummified by ancient curses.",
-            "Infected by zombie chickens.",
-            "Stung by a swarm of robotic bees.",
-            "Trapped in a time loop.",
-            "Vanished into thin air.",
-            "Imploded from too much pressure.",
-            "Fused with a vending machine.",
-            "Crushed by a giant snowball.",
-            "Buried under an avalanche of paperwork.",
-            "Incinerated by a rogue sunbeam.",
-            "Turned to stone by a medusa."
+            "Indulge in a decadent stack of pancakes drizzled with maple syrup.",
+            "Savor the goodness of avocado toast topped with poached eggs.",
+            "Try something different with a breakfast burrito filled with chorizo and potatoes.",
+            "Feeling fancy? Treat yourself to a smoked salmon bagel with cream cheese.",
+            "Start your day with a bowl of creamy chia seed pudding topped with fresh berries.",
+            "Enjoy a breakfast pizza topped with eggs, bacon, and cheese.",
+            "How about a breakfast parfait with layers of yogurt, granola, and mixed fruits?",
+            "Go for a Mediterranean-inspired breakfast with a plate of hummus, olives, and pita bread.",
+            "Whip up a batch of homemade waffles and serve them with your favorite toppings.",
+            "Fuel up for the day with a hearty breakfast skillet loaded with potatoes, sausage, and eggs.",
+            "Indulge your sweet tooth with a slice of cinnamon swirl bread toasted and topped with icing.",
+            "Start your morning with a warm and comforting bowl of congee topped with savory toppings.",
+            "Try a breakfast salad with mixed greens, hard-boiled eggs, and a tangy vinaigrette.",
+            "How about some shakshuka – eggs poached in a spicy tomato and pepper sauce?",
+            "Make breakfast fun with a DIY yogurt parfait bar with assorted toppings.",
+            "Satisfy your cravings with a breakfast BLT sandwich served on toasted sourdough bread.",
+            "Start your day with a tropical twist by enjoying a pineapple coconut smoothie bowl.",
+            "Feeling adventurous? Try a Japanese-style breakfast with miso soup, rice, and grilled fish.",
+            "How about a breakfast frittata loaded with your favorite veggies and cheese?",
+            "Make breakfast exciting with a build-your-own breakfast taco bar.",
+            "Start your day with a classic croissant sandwich filled with ham, cheese, and scrambled eggs.",
+            "Indulge in a breakfast bruschetta with tomatoes, basil, and a balsamic glaze.",
+            "Keep it light and refreshing with a breakfast salad topped with poached eggs and avocado.",
+            "Start your morning with a warm and comforting bowl of creamy grits topped with butter.",
+            "How about a breakfast smoothie packed with spinach, banana, and protein powder?",
         ],
         high: [
-            "Devoured by a giant space worm.",
-            "Transported to another dimension and never returned.",
-            "Absorbed by a sentient blob of jelly.",
-            "Erased from existence by a quantum glitch.",
-            "Sacrificed to appease a deity.",
-            "Dissolved by acid rain.",
-            "Annihilated by a rogue AI.",
-            "Consumed by a living shadow.",
-            "Fused into a cyborg hive mind.",
-            "Transformed into a constellation.",
-            "Swallowed by a cosmic serpent.",
-            "Imploded by psychic pressure.",
-            "Torn apart by gravitational forces.",
-            "Cursed to eternal torment.",
-            "Vaporized by a reality-warping explosion.",
-            "Frozen in time and space.",
-            "Eaten by an interdimensional monster.",
-            "Shattered by a sound wave.",
-            "Disintegrated by a laser beam.",
-            "Merged with the fabric of the universe.",
-            "Torn apart by psychic energy.",
-            "Imploded into a singularity.",
-            "Scattered across alternate realities.",
-            "Wiped from the annals of history.",
-            "Consumed by the void."
-        ]
-    };
-
-    const quoteBox = document.getElementById('quote-box');
-    const chaosLevelRadios = document.querySelectorAll('input[name="chaos-level"]');
-
-    function getRandomDeathMessage(chaosLevel) {
-        const messagesArray = deathMessages[chaosLevel];
-        return messagesArray[Math.floor(Math.random() * messagesArray.length)];
-    }
-
-    function displayQuote() {
-        const selectedChaosLevel = document.querySelector('input[name="chaos-level"]:checked').value;
-        quoteBox.value = getRandomDeathMessage(selectedChaosLevel);
-    }
-
-    chaosLevelRadios.forEach(radio => {
-        radio.addEventListener('change', displayQuote);
-    });
-
-    // Display initial quote
-    displayQuote();
-</script>
-</body>
-</html>
-
+            "Treat yourself to a full English breakfast complete with eggs, bacon, sausage, beans, and toast.",
+            "Go big with a breakfast feast featuring pancakes, waffles, French toast, and all the fixings.",
+            "Channel your inner chef with a gourmet omelette filled with lobster, mushrooms, and cheese.",
+            "Indulge in a decadent breakfast spread featuring pastries, quiches, and artisanal cheeses.",
+            "Satisfy your cravings with a breakfast poutine topped with gravy, cheese curds, and a fried egg.",
+            "Start your day with a breakfast board featuring an assortment of meats, cheeses, and fruits.",
+            "Go all out with a breakfast buffet featuring an array of international dishes.",
+            "Create a breakfast charcuterie board with an assortment of meats, cheeses, and gourmet spreads.",
+            "Indulge in a breakfast burger topped with a fried egg, bacon, avocado, and hollandaise sauce.",
+            "Make breakfast exciting with a DIY pancake bar featuring assorted toppings and sy

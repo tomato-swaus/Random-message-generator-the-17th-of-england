@@ -1,104 +1,225 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Breakfast Quote Generator</title>
+    <title>15-Minute Breakfast Recipes</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="page2.html">Page 2</a>
+        <a href="page3.html">Page 3</a> <!-- Added link to Page 3 -->
+    </div>
+
+    <h1>15-Minute Breakfast Recipes</h1>
+    <!-- Your recipe content here -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-Minute Breakfast Recipes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
         }
-        .container {
+        .recipe {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+        }
+        .recipe ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+        .recipe ol li {
+            margin-bottom: 10px;
+        }
+        .menu {
+            background-color: #f2f2f2;
+            padding: 10px;
             text-align: center;
         }
-        h1 {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #quote {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
-            min-height: 100px;
-            background-color: #fff;
+        .menu a {
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="page2.html">Page 2</a>
+        <a href="page3.html">Page 3</a>
+    </div>
 
-<div class="container">
-    <h1>Random Breakfast Quote Generator</h1>
-    <select id="chaosLevel">
-        <option value="low">Low Chaos</option>
-        <option value="medium">Medium Chaos</option>
-        <option value="high">High Chaos</option>
-    </select>
-    <br><br>
-    <button onclick="generateQuote()">Generate Quote</button>
-    <div id="quote"></div>
-</div>
+    <h1>15-Minute Breakfast Recipes</h1>
+    <div class="recipe">
+        <h2>Recipe 1: Scrambled Eggs with Spinach and Feta</h2>
+        <img src="https://www.recipetineats.com/wp-content/uploads/2020/07/Scrambled-Eggs_5-SQ.jpg">
+        <p>Here's the recipe:</p>
+        <ol>
+            <li>Heat a skillet over medium heat.</li>
+            <li>Whisk together eggs and a handful of spinach.</li>
+            <li>Pour the mixture into the skillet and cook until the eggs are set.</li>
+            <li>Sprinkle feta cheese on top and serve hot.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>If desired, add chopped tomatoes or bell peppers for extra flavor.</li>
+            <li>For a creamier texture, add a splash of milk to the egg mixture.</li>
+            <li>Use fresh spinach for best results, but frozen spinach works too.</li>
+            <li>Experiment with different types of cheese like goat cheese or cheddar.</li>
+            <li>Top with fresh herbs like parsley or chives for added freshness.</li>
+            <li>Serve with toast or crusty bread for a complete breakfast.</li>
+            <li>For a low-carb option, serve with sliced avocado or a side salad.</li>
+            <li>Make sure not to overcook the eggs; they should be soft and slightly creamy.</li>
+            <li>Feel free to add cooked bacon or sausage for a heartier meal.</li>
+            <li>Enjoy your delicious and nutritious scrambled eggs with spinach and feta!</li>
+        </ol>
+    </div>
 
-<script>
-    const lowChaosQuotes = [
-        "A bowl of cereal with ketchup.",
-        "Peanut butter and pickles sandwich.",
-        "Sushi for breakfast.",
-        // Add more low chaos quotes here
-    ];
-    const mediumChaosQuotes = [
-        "Pizza topped with scrambled eggs and syrup.",
-        "Chicken nuggets dipped in pancake batter.",
-        "Spaghetti and meatballs with a side of yogurt.",
-        // Add more medium chaos quotes here
-    ];
-    const highChaosQuotes = [
-        "Ice cream with bacon bits and hot sauce.",
-        "Nachos with scrambled eggs and whipped cream.",
-        "Leftover Chinese food mixed with oatmeal.",
-        // Add more high chaos quotes here
-    ];
+</body>
+</html>
 
-    function getRandomQuote(chaosLevel) {
-        switch (chaosLevel) {
-            case 'low':
-                return lowChaosQuotes[Math.floor(Math.random() * lowChaosQuotes.length)];
-            case 'medium':
-                return mediumChaosQuotes[Math.floor(Math.random() * mediumChaosQuotes.length)];
-            case 'high':
-                return highChaosQuotes[Math.floor(Math.random() * highChaosQuotes.length)];
-            default:
-                return "No chaos level selected.";
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-Minute Breakfast Burrito Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-    }
+        .recipe {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+        }
+        .recipe ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+        .recipe ol li {
+            margin-bottom: 10px;
+        }
+        .menu {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        .menu a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="page2.html">Page 2</a>
+    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Example</title>
+</head>
+<body>
+    <h1>Example Image</h1>
+    <img src="https://www.allrecipes.com/thmb/W_DBTjUHW1W0uOYuM9bnMRINOS4=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/214583-SouthwestBreakfastBurritos-ddmfs-3x4-8401-156c7c8d657a4a5d9f3f393146fdafc3.jpg">
+</body>
+</html>
 
-    function generateQuote() {
-        const chaosLevel = document.getElementById('chaosLevel').value;
-        const quoteContainer = document.getElementById('quote');
-        quoteContainer.textContent = getRandomQuote(chaosLevel);
-    }
-</script>
 
+    <h1>15-Minute Breakfast Burrito Recipe</h1>
+    <div class="recipe">
+        <h2>Recipe:</h2>
+        <p>Here's how to make a delicious breakfast burrito in just 15 minutes:</p>
+        <ol>
+            <li>Heat a skillet over medium heat and add a drizzle of oil.</li>
+            <li>Crack 2 eggs into the skillet and scramble them until cooked through.</li>
+            <li>Add diced bell peppers, onions, and any other desired veggies to the skillet and cook until softened.</li>
+            <li>Warm a large tortilla in the microwave for 10-15 seconds or until soft and pliable.</li>
+            <li>Place the warmed tortilla on a plate and spoon the scrambled eggs and veggie mixture onto the center of the tortilla.</li>
+            <li>Sprinkle shredded cheese on top of the eggs and veggies.</li>
+            <li>Drizzle salsa or hot sauce over the cheese, if desired.</li>
+            <li>Optional: Add cooked bacon or sausage for extra flavor.</li>
+            <li>Roll the tortilla tightly around the filling, tucking in the sides as you go.</li>
+            <li>Place the burrito seam-side down on the skillet and cook for 1-2 minutes on each side, or until lightly browned and crispy.</li>
+            <li>Remove the burrito from the skillet and let it cool slightly before serving.</li>
+            <li>Serve the breakfast burrito with additional salsa, sour cream, or avocado on the side, if desired.</li>
+            <li>Enjoy your delicious and satisfying breakfast burrito!</li>
+        </ol>
+    </div>
+</body>
+</html>
+<!-- page3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="page2.html">Page 2</a>
+        <a href="page3.html">Page 3</a>
+    </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Example</title>
+</head>
+<body>
+    <h1>Example Image</h1>
+    <img src="https://www.culinaryhill.com/wp-content/uploads/2023/09/Blueberry-Pancakes-Culinary-Hill-1200x800-1.jpg">
+</body>
+</html>
+
+    <h1>15-Minute Blueberry Pancakes</h1>
+    <div class="recipe">
+        <h2>Recipe:</h2>
+        <img src="blueberry_pancakes.jpg" alt="Blueberry Pancakes">
+        <p>Here's the recipe:</p>
+        <ol>
+            <li>Whisk together flour, sugar, baking powder, and salt in a bowl.</li>
+            <li>In another bowl, whisk together milk, egg, and melted butter.</li>
+            <li>Pour the wet ingredients into the dry ingredients and stir until just combined (don't overmix).</li>
+            <li>Gently fold in fresh blueberries.</li>
+            <li>Heat a lightly oiled griddle or frying pan over medium-high heat.</li>
+            <li>Scoop batter onto the griddle, using approximately 1/4 cup for each pancake.</li>
+            <li>Cook until bubbles form and edges are firm, then flip and cook until golden brown on the other side.</li>
+            <li>Repeat with remaining batter.</li>
+            <li>Serve hot with maple syrup and extra blueberries, if desired.</li>
+        </ol>
+    </div>
 </body>
 </html>
